@@ -1,0 +1,178 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beginner's Computer Guide</title>
+  <style>
+    /* General Styling */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    h2 {
+      color: #00d1b2;
+    }
+
+    p {
+      color: #cccccc;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* Fullscreen Image Section */
+    .vh-100-image {
+      background-image: url('your-image-url.jpg'); /* Replace with your image URL */
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+    }
+
+    /* Course Section Styling */
+    .course-section {
+      padding: 20px;
+      margin: 20px auto;
+      border-bottom: 1px solid #333;
+      max-width: 800px;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .dropdown button {
+      background-color: #00d1b2;
+      color: #ffffff;
+      border: none;
+      padding: 10px 15px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .dropdown ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      background-color: #222;
+      border: 1px solid #333;
+      border-radius: 5px;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      display: none;
+      z-index: 10;
+    }
+
+    .dropdown ul li {
+      padding: 10px 15px;
+    }
+
+    .dropdown ul li a {
+      color: #ffffff;
+    }
+
+    .dropdown ul li:hover {
+      background-color: #444;
+    }
+
+    .dropdown.show ul {
+      display: block;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .contact-section a {
+      display: inline-block;
+      background-color: #25d366;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    /* Footer Styling */
+    .footer-image {
+      background-image: url('footer-image-url.jpg'); /* Replace with your footer image URL */
+      background-size: cover;
+      background-position: center;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fullscreen Image Section -->
+  <div class="vh-100-image"></div>
+
+  <!-- Courses Section -->
+  <div class="course-section">
+    <h2>Getting Started with Computers</h2>
+    <p>Learn how to power on, navigate, and use a computer step by step.</p>
+    <div class="dropdown">
+      <button onclick="toggleDropdown(event, 'dropdown1')">Step-by-Step Guide</button>
+      <ul id="dropdown1">
+        <li><a href="#">Step 1: Turning on the Computer</a></li>
+        <li><a href="#">Step 2: Navigating the Desktop</a></li>
+        <li><a href="#">Step 3: Using Basic Applications</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="course-section">
+    <h2>Introduction to Web Development</h2>
+    <p>Explore the basics of web development, including HTML, CSS, and JavaScript.</p>
+    <div class="dropdown">
+      <button onclick="toggleDropdown(event, 'dropdown2')">Step-by-Step Guide</button>
+      <ul id="dropdown2">
+        <li><a href="#">Step 1: Setting Up a Development Environment</a></li>
+        <li><a href="#">Step 2: Understanding HTML</a></li>
+        <li><a href="#">Step 3: Basics of CSS</a></li>
+        <li><a href="#">Step 4: Introduction to JavaScript</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="contact-section">
+    <p>Contact us for more classes:</p>
+    <a href="https://wa.me/1234567890" target="_blank">WhatsApp Us</a>
+  </div>
+
+  <!-- Footer Image -->
+  <div class="footer-image"></div>
+
+  <script>
+    // Dropdown Toggle
+    function toggleDropdown(event, id) {
+      event.stopPropagation(); // Prevent the click from bubbling to the body
+      const dropdown = document.getElementById(id);
+      const isVisible = dropdown.parentNode.classList.contains('show');
+      
+      // Close all open dropdowns
+      document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('show'));
+      
+      // Toggle the clicked dropdown
+      if (!isVisible) {
+        dropdown.parentNode.classList.add('show');
+      }
+    }
+
+    // Close Dropdown on Outside Click
+    document.body.addEventListener('click', () => {
+      document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('show'));
+    });
+  </script>
+</body>
+</html>
