@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -13,7 +13,7 @@
       color: #ffffff;
     }
 
-    h2 {
+    h1, h2 {
       color: #00d1b2;
     }
 
@@ -31,6 +31,31 @@
       background-size: cover;
       background-position: center;
       height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vh-100-image h1 {
+      font-size: 2.5rem;
+      color: #ffffff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      opacity: 0;
+      transform: scale(0);
+      animation: scatterText 1s ease-out forwards;
+    }
+
+    @keyframes scatterText {
+      0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
     }
 
     /* Course Section Styling */
@@ -87,13 +112,9 @@
       display: block;
     }
 
-    /* Contact Section */
-    .contact-section {
-      text-align: center;
-      margin: 20px;
-    }
-
-    .contact-section a {
+    /* Contact Button */
+    .contact-button {
+      margin-top: 10px;
       display: inline-block;
       background-color: #25d366;
       color: white;
@@ -114,7 +135,9 @@
 <body>
 
   <!-- Fullscreen Image Section -->
-  <div class="vh-100-image"></div>
+  <div class="vh-100-image">
+    <h1>Welcome to the Beginner's Computer Guide</h1>
+  </div>
 
   <!-- Courses Section -->
   <div class="course-section">
@@ -128,6 +151,7 @@
         <li><a href="#">Step 3: Using Basic Applications</a></li>
       </ul>
     </div>
+    <a class="contact-button" href="https://wa.me/1234567890" target="_blank">Contact Us on WhatsApp</a>
   </div>
 
   <div class="course-section">
@@ -142,13 +166,11 @@
         <li><a href="#">Step 4: Introduction to JavaScript</a></li>
       </ul>
     </div>
+    <a class="contact-button" href="https://wa.me/1234567890" target="_blank">Contact Us on WhatsApp</a>
   </div>
 
-  <!-- Contact Section -->
-  <div class="contact-section">
-    <p>Contact us for more classes:</p>
-    <a href="https://wa.me/1234567890" target="_blank">WhatsApp Us</a>
-  </div>
+
+
 
   <!-- Footer Image -->
   <div class="footer-image"></div>
@@ -158,7 +180,7 @@
     function toggleDropdown(event, id) {
       event.stopPropagation(); // Prevent the click from bubbling to the body
       const dropdown = document.getElementById(id);
-      const isVisible = dropdown.parentNode.classList.contains('show');
+      const isVisible = dropdown.parentNode.classList.contains('show'); 
       
       // Close all open dropdowns
       document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('show'));
